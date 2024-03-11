@@ -85,33 +85,33 @@ public class MatrixOperationBenchmark {
     private final static Pattern SEMICOLON = Pattern.compile(";");
 
     @Param({
-          "1x1;1x1", // Matrix 1: 1 elements, Matrix 2: 1 elements, Compute Intensity: 1
-          "1x5;5x1", // Matrix 1: 5 elements, Matrix 2: 5 elements, Compute Intensity: 5
-          "2x2;2x2", // Matrix 1: 4 elements, Matrix 2: 4 elements, Compute Intensity: 8
-          "1x155;155x1", // Matrix 1: 155 elements, Matrix 2: 155 elements, Compute Intensity: 155
-          "1x18;18x18", // Matrix 1: 18 elements, Matrix 2: 324 elements, Compute Intensity: 324
-//          "155x2;2x2", // Matrix 1: 310 elements, Matrix 2: 4 elements, Compute Intensity: 620
-//          "3x155;155x3", // Matrix 1: 465 elements, Matrix 2: 465 elements, Compute Intensity: 1395
-//          "1x2;2x1000", // Matrix 1: 2 elements, Matrix 2: 2000 elements, Compute Intensity: 2000
-//          "1x3;3x1000", // Matrix 1: 3 elements, Matrix 2: 3000 elements, Compute Intensity: 3000
-//          "1x155;155x155", // Matrix 1: 155 elements, Matrix 2: 24025 elements, Compute Intensity: 24025
-//          "1x28;28x1000", // Matrix 1: 28 elements, Matrix 2: 28000 elements, Compute Intensity: 28000
-//          "3x155;155x155", // Matrix 1: 465 elements, Matrix 2: 24025 elements, Compute Intensity: 72075
-//          "30x50;50x50", // Matrix 1: 1500 elements, Matrix 2: 2500 elements, Compute Intensity: 75000
-//          "28x155;155x28", // Matrix 1: 4340 elements, Matrix 2: 4340 elements, Compute Intensity: 121520
-//          "30x155;155x30", // Matrix 1: 4650 elements, Matrix 2: 4650 elements, Compute Intensity: 139500
-//          "7x155;155x155", // Matrix 1: 1085 elements, Matrix 2: 24025 elements, Compute Intensity: 168175
-//          "16x155;155x155", // Matrix 1: 2480 elements, Matrix 2: 24025 elements, Compute Intensity: 384400
-//          "9441x9441;9441x1", // Matrix 1: 89132481 elements, Matrix 2: 9441 elements, Compute Intensity: 89132481
-//          "9441x155;155x155", // Matrix 1: 1463355 elements, Matrix 2: 24025 elements, Compute Intensity: 226820025
-//          "2239x2289;2289x2339", // Matrix 1: 5125071 elements, Matrix 2: 5353971 elements, Compute Intensity: 11987541069
-//          "9441x155;155x9441", // Matrix 1: 1463355 elements, Matrix 2: 1463355 elements, Compute Intensity: 13815534555
-//          "155x9441;9441x9441", // Matrix 1: 1463355 elements, Matrix 2: 89132481 elements, Compute Intensity: 13815534555
-//          "3000x3000;3000x3000", // Matrix 1: 9000000 elements, Matrix 2: 9000000 elements, Compute Intensity: 27000000000
-//          "3300x3300;3300x3300", // Matrix 1: 10890000 elements, Matrix 2: 10890000 elements, Compute Intensity: 35937000000
-//          "3500x3500;3500x3500", // Matrix 1: 10890000 elements, Matrix 2: 10890000 elements, Compute Intensity: 42875000000
-//          "4000x4000;4000x4000", // Matrix 1: 16000000 elements, Matrix 2: 16000000 elements, Compute Intensity: 64000000000
-//          "9441x9441;9441x9441", // Matrix 1: 89132481 elements, Matrix 2: 89132481 elements, Compute Intensity: 841499753121
+          //          "1x1;1x1", // Matrix 1: 1 elements, Matrix 2: 1 elements, Compute Intensity: 1
+          //          "1x5;5x1", // Matrix 1: 5 elements, Matrix 2: 5 elements, Compute Intensity: 5
+          //          "2x2;2x2", // Matrix 1: 4 elements, Matrix 2: 4 elements, Compute Intensity: 8
+          //          "1x155;155x1", // Matrix 1: 155 elements, Matrix 2: 155 elements, Compute Intensity: 155
+          //          "1x18;18x18", // Matrix 1: 18 elements, Matrix 2: 324 elements, Compute Intensity: 324
+          //          "155x2;2x2", // Matrix 1: 310 elements, Matrix 2: 4 elements, Compute Intensity: 620
+          //          "3x155;155x3", // Matrix 1: 465 elements, Matrix 2: 465 elements, Compute Intensity: 1395
+          //          "1x2;2x1000", // Matrix 1: 2 elements, Matrix 2: 2000 elements, Compute Intensity: 2000
+          //          "1x3;3x1000", // Matrix 1: 3 elements, Matrix 2: 3000 elements, Compute Intensity: 3000
+          //          "1x155;155x155", // Matrix 1: 155 elements, Matrix 2: 24025 elements, Compute Intensity: 24025
+          //          "1x28;28x1000", // Matrix 1: 28 elements, Matrix 2: 28000 elements, Compute Intensity: 28000
+          //          "3x155;155x155", // Matrix 1: 465 elements, Matrix 2: 24025 elements, Compute Intensity: 72075
+          //          "30x50;50x50", // Matrix 1: 1500 elements, Matrix 2: 2500 elements, Compute Intensity: 75000
+          //          "28x155;155x28", // Matrix 1: 4340 elements, Matrix 2: 4340 elements, Compute Intensity: 121520
+          //          "30x155;155x30", // Matrix 1: 4650 elements, Matrix 2: 4650 elements, Compute Intensity: 139500
+          //          "7x155;155x155", // Matrix 1: 1085 elements, Matrix 2: 24025 elements, Compute Intensity: 168175
+          //          "16x155;155x155", // Matrix 1: 2480 elements, Matrix 2: 24025 elements, Compute Intensity: 384400
+          //          "9441x9441;9441x1", // Matrix 1: 89132481 elements, Matrix 2: 9441 elements, Compute Intensity: 89132481
+          //          "9441x155;155x155", // Matrix 1: 1463355 elements, Matrix 2: 24025 elements, Compute Intensity: 226820025
+          //          "2239x2289;2289x2339", // Matrix 1: 5125071 elements, Matrix 2: 5353971 elements, Compute Intensity: 11987541069
+          //          "9441x155;155x9441", // Matrix 1: 1463355 elements, Matrix 2: 1463355 elements, Compute Intensity: 13815534555
+          "155x9441;9441x9441", // Matrix 1: 1463355 elements, Matrix 2: 89132481 elements, Compute Intensity: 13815534555
+          "3000x3000;3000x3000", // Matrix 1: 9000000 elements, Matrix 2: 9000000 elements, Compute Intensity: 27000000000
+          "3300x3300;3300x3300", // Matrix 1: 10890000 elements, Matrix 2: 10890000 elements, Compute Intensity: 35937000000
+          "3500x3500;3500x3500", // Matrix 1: 10890000 elements, Matrix 2: 10890000 elements, Compute Intensity: 42875000000
+          "4000x4000;4000x4000", // Matrix 1: 16000000 elements, Matrix 2: 16000000 elements, Compute Intensity: 64000000000
+          "9441x9441;9441x9441", // Matrix 1: 89132481 elements, Matrix 2: 89132481 elements, Compute Intensity: 841499753121
     })
     private String matrixDimensions;
     double[][] firstMatrix;

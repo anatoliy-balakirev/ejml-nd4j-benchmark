@@ -2,6 +2,8 @@ package benchmark;
 
 import java.util.Random;
 import java.util.regex.Pattern;
+import org.apache.commons.math3.linear.Array2DRowRealMatrix;
+import org.apache.commons.math3.linear.BlockRealMatrix;
 import org.ejml.simple.SimpleMatrix;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
@@ -78,6 +80,63 @@ import org.openjdk.jmh.annotations.State;
         MatrixOperationBenchmark.testMatrixMultiplicationNd4J  3500x3500;3500x3500  avgt    3    0.942 ±  0.196   s/op
         MatrixOperationBenchmark.testMatrixMultiplicationNd4J  4000x4000;4000x4000  avgt    3    1.510 ±  1.066   s/op
         MatrixOperationBenchmark.testMatrixMultiplicationNd4J  9441x9441;9441x9441  avgt    3   14.203 ± 12.498   s/op
+
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath                   1x1;1x1  avgt    3   ≈ 10⁻⁷            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath                   1x5;5x1  avgt    3   ≈ 10⁻⁷            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath                   2x2;2x2  avgt    3   ≈ 10⁻⁷            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath               1x155;155x1  avgt    3   ≈ 10⁻⁶            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath                1x18;18x18  avgt    3   ≈ 10⁻⁶            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath                 155x2;2x2  avgt    3   ≈ 10⁻⁵            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath               3x155;155x3  avgt    3   ≈ 10⁻⁵            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath                1x2;2x1000  avgt    3   ≈ 10⁻⁵            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath                1x3;3x1000  avgt    3   ≈ 10⁻⁵            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath             1x155;155x155  avgt    3   ≈ 10⁻⁴            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath              1x28;28x1000  avgt    3   ≈ 10⁻⁴            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath             3x155;155x155  avgt    3   ≈ 10⁻⁴            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath               30x50;50x50  avgt    3   ≈ 10⁻⁵            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath             28x155;155x28  avgt    3   ≈ 10⁻⁴            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath             30x155;155x30  avgt    3   ≈ 10⁻⁴            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath             7x155;155x155  avgt    3   ≈ 10⁻⁴            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath            16x155;155x155  avgt    3   ≈ 10⁻⁴            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath          9441x9441;9441x1  avgt    3    0.186 ±  0.043   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath          9441x155;155x155  avgt    3    0.125 ±  0.052   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath       2239x2289;2289x2339  avgt    3    7.993 ±  2.103   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath         9441x155;155x9441  avgt    3   11.856 ±  3.543   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath        155x9441;9441x9441  avgt    3    9.184 ±  1.994   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath       3000x3000;3000x3000  avgt    3   18.042 ±  6.372   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath       3300x3300;3300x3300  avgt    3   24.793 ±  4.772   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath       3500x3500;3500x3500  avgt    3   28.658 ±  6.257   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath       4000x4000;4000x4000  avgt    3   43.166 ± 21.033   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMath       9441x9441;9441x9441  avgt    3  518.391 ± 29.871   s/op
+
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock              1x1;1x1  avgt    3   ≈ 10⁻⁷            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock              1x5;5x1  avgt    3   ≈ 10⁻⁷            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock              2x2;2x2  avgt    3   ≈ 10⁻⁷            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock          1x155;155x1  avgt    3   ≈ 10⁻⁶            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock           1x18;18x18  avgt    3   ≈ 10⁻⁶            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock            155x2;2x2  avgt    3   ≈ 10⁻⁶            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock          3x155;155x3  avgt    3   ≈ 10⁻⁶            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock           1x2;2x1000  avgt    3   ≈ 10⁻⁵            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock           1x3;3x1000  avgt    3   ≈ 10⁻⁵            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock        1x155;155x155  avgt    3   ≈ 10⁻⁵            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock         1x28;28x1000  avgt    3   ≈ 10⁻⁵            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock        3x155;155x155  avgt    3   ≈ 10⁻⁴            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock          30x50;50x50  avgt    3   ≈ 10⁻⁴            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock        28x155;155x28  avgt    3   ≈ 10⁻⁴            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock        30x155;155x30  avgt    3   ≈ 10⁻⁴            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock        7x155;155x155  avgt    3   ≈ 10⁻⁴            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock       16x155;155x155  avgt    3   ≈ 10⁻⁴            s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock     9441x9441;9441x1  avgt    3    0.128 ±  0.006   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock     9441x155;155x155  avgt    3    0.097 ±  0.102   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock  2239x2289;2289x2339  avgt    3    4.966 ±  2.005   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock    9441x155;155x9441  avgt    3    5.579 ±  1.271   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock   155x9441;9441x9441  avgt    3    5.678 ±  2.780   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock  3000x3000;3000x3000  avgt    3   11.262 ± 14.715   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock  3300x3300;3300x3300  avgt    3   14.294 ±  4.802   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock  3500x3500;3500x3500  avgt    3   16.994 ±  8.474   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock  4000x4000;4000x4000  avgt    3   26.013 ±  0.711   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationCommonsMathBlock  9441x9441;9441x9441  avgt    3  332.777 ± 40.412   s/op
+
     * */
 @State(Scope.Benchmark)
 public class MatrixOperationBenchmark {
@@ -149,5 +208,15 @@ public class MatrixOperationBenchmark {
         try (INDArray indArray1 = Nd4j.create(firstMatrix); INDArray indArray2 = Nd4j.create(secondMatrix)) {
             indArray1.mmul(indArray2).toDoubleMatrix();
         }
+    }
+
+    @Benchmark
+    public void testMatrixMultiplicationCommonsMath() {
+        new Array2DRowRealMatrix(firstMatrix).multiply(new Array2DRowRealMatrix(secondMatrix));
+    }
+
+    @Benchmark
+    public void testMatrixMultiplicationCommonsMathBlock() {
+        new BlockRealMatrix(firstMatrix).multiply(new BlockRealMatrix(secondMatrix));
     }
 }

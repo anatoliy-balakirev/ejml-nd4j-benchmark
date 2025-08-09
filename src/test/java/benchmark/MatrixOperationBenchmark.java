@@ -54,7 +54,7 @@ import org.openjdk.jmh.annotations.State;
         MatrixOperationBenchmark.testMatrixMultiplicationEjml            3500x3500;3500x3500  avgt    3    8.530 ±   8.931   s/op
         MatrixOperationBenchmark.testMatrixMultiplicationEjml            4000x4000;4000x4000  avgt    3   14.159 ±  30.938   s/op
         MatrixOperationBenchmark.testMatrixMultiplicationEjml            9441x9441;9441x9441  avgt    3  154.883 ± 201.422   s/op
-
+        Benchmark                                                         (matrixDimensions)  Mode  Cnt    Score     Error  Units
         MatrixOperationBenchmark.testMatrixMultiplicationNd4J                        1x1;1x1  avgt    3   ≈ 10⁻⁴             s/op
         MatrixOperationBenchmark.testMatrixMultiplicationNd4J                        1x5;5x1  avgt    3   ≈ 10⁻⁴             s/op
         MatrixOperationBenchmark.testMatrixMultiplicationNd4J                        2x2;2x2  avgt    3   ≈ 10⁻⁴             s/op
@@ -130,6 +130,7 @@ import org.openjdk.jmh.annotations.State;
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgo          3500x3500;3500x3500  avgt    3   48.554 ±  63.907   s/op
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgo          4000x4000;4000x4000  avgt    3   72.155 ±  94.036   s/op
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgo          9441x9441;9441x9441  avgt    3  852.608 ±  22.270   s/op
+        Benchmark                                                         (matrixDimensions)  Mode  Cnt    Score     Error  Units
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgoParallel              1x1;1x1  avgt    3   ≈ 10⁻⁷             s/op
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgoParallel              1x5;5x1  avgt    3   ≈ 10⁻⁷             s/op
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgoParallel              2x2;2x2  avgt    3   ≈ 10⁻⁷             s/op

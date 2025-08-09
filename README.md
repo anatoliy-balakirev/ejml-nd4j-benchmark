@@ -1,6 +1,6 @@
 # ejml-nd4j-ojAlgo-benchmark
-Sample project to show the performance degradation of EJML compared to ND4J on bigger matrices, and slower execution times of ojAlgo compared to EJML.
-The configuration parameters, passed to JMH (see below) are quite naive (e.g. I only do one warmup round), but should be good enough to highlight the problem.
+Sample project to show matrix multiplication performance degradation of EJML compared to ND4J on bigger matrices, and slower execution times of ojAlgo compared to EJML.
+The configuration parameters passed to JMH (see below) are quite naive (e.g., I only do one warmup round), but should be good enough to highlight the problem.
 
 ## Running in Linux
 Execute the following command in the root of the project:

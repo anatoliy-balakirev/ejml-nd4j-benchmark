@@ -1,10 +1,6 @@
 package benchmark;
 
 import org.ejml.simple.SimpleMatrix;
-import org.nd4j.linalg.api.ndarray.INDArray;
-import org.nd4j.linalg.factory.Nd4j;
-import org.ojalgo.matrix.store.R064Store;
-import org.ojalgo.matrix.store.RawStore;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
@@ -16,7 +12,7 @@ import org.openjdk.jmh.infra.Blackhole;
         Benchmark                                                         (matrixDimensions)  Mode  Cnt   Score    Error  Units
     * */
 @State(Scope.Benchmark)
-public class PureMatrixMultiplicationEjmlBenchmark extends PureMatrixMultiplicationBenchmarkAbstract<SimpleMatrix> {
+public class MatrixMultiplicationBenchmarkEjml extends MatrixMultiplicationBenchmarkAbstract<SimpleMatrix> {
 
     @Override
     public SimpleMatrix toNativeType(double[][] matrix) {
@@ -24,7 +20,7 @@ public class PureMatrixMultiplicationEjmlBenchmark extends PureMatrixMultiplicat
     }
 
     @Benchmark
-    public void testMatrixMultiplicationEjml(Blackhole blackhole) {
+    public void multiply(Blackhole blackhole) {
         var result = firstMatrix.mult(secondMatrix);
         blackhole.consume(result);
     }

@@ -13,7 +13,7 @@ import org.openjdk.jmh.infra.Blackhole;
         Benchmark                                                         (matrixDimensions)  Mode  Cnt   Score    Error  Units
     * */
 @State(Scope.Benchmark)
-public class PureMatrixMultiplicationNd4jBenchmark extends PureMatrixMultiplicationBenchmarkAbstract<INDArray> {
+public class MatrixMultiplicationBenchmarkNd4J extends MatrixMultiplicationBenchmarkAbstract<INDArray> {
 
     @Override
     public INDArray toNativeType(double[][] matrix) {
@@ -21,7 +21,7 @@ public class PureMatrixMultiplicationNd4jBenchmark extends PureMatrixMultiplicat
     }
 
     @Benchmark
-    public void testMatrixMultiplicationNd4J(Blackhole blackhole) {
+    public void multiply(Blackhole blackhole) {
         try {
             var result = firstMatrix.mmul(secondMatrix).toDoubleMatrix();
             blackhole.consume(result);

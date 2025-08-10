@@ -1,5 +1,6 @@
 package benchmark;
 
+import org.ojalgo.matrix.store.R064Store;
 import org.ojalgo.matrix.store.RawStore;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Scope;
@@ -12,15 +13,15 @@ import org.openjdk.jmh.infra.Blackhole;
         Benchmark                                                         (matrixDimensions)  Mode  Cnt   Score    Error  Units
     * */
 @State(Scope.Benchmark)
-public class PureMatrixMultiplicationOjAlgoRawBenchmark extends PureMatrixMultiplicationBenchmarkAbstract<RawStore> {
+public class MatrixMultiplicationBenchmarkOjAlgoR064Store extends MatrixMultiplicationBenchmarkAbstract<R064Store> {
 
     @Override
-    public RawStore toNativeType(double[][] matrix) {
-        return RawStore.wrap(matrix);
+    public R064Store toNativeType(double[][] matrix) {
+        return R064Store.FACTORY.copy(RawStore.wrap(matrix));
     }
 
     @Benchmark
-    public void testMatrixMultiplicationOjAlgo(Blackhole blackhole) {
+    public void multiply(Blackhole blackhole) {
         var result = firstMatrix.multiply(secondMatrix);
         blackhole.consume(result);
     }

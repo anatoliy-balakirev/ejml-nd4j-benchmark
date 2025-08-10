@@ -8,7 +8,7 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 
 @State(Scope.Group)
-public abstract class PureMatrixMultiplicationBenchmarkAbstract<T> {
+public abstract class DoubleArrayInstantiationAbstract {
     private final static Pattern X = Pattern.compile("x");
     private final static Pattern SEMICOLON = Pattern.compile(";");
 
@@ -52,8 +52,8 @@ public abstract class PureMatrixMultiplicationBenchmarkAbstract<T> {
           "9441x9441;9441x9441", // Matrix 1: 89132481 elements, Matrix 2: 89132481 elements, Compute Intensity: 841,499,753,121
     })
     private String matrixDimensions;
-    T firstMatrix;
-    T secondMatrix;
+    double[][] firstArray;
+    double[][] secondArray;
 
     @Setup
     public void setup() {
@@ -75,9 +75,7 @@ public abstract class PureMatrixMultiplicationBenchmarkAbstract<T> {
                 secondMatrix[i][j] = random.nextDouble();
             }
         }
-        this.firstMatrix = toNativeType(firstMatrix);
-        this.secondMatrix = toNativeType(secondMatrix);
+        this.firstArray = firstMatrix;
+        this.secondArray = secondMatrix;
     }
-
-    public abstract T toNativeType(double[][] matrix);
 }

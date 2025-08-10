@@ -12,6 +12,7 @@ import org.openjdk.jmh.annotations.Param;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.infra.Blackhole;
 
 /*
         To run this, execute the following command:
@@ -240,24 +241,28 @@ public class MatrixOperationBenchmark {
     }
 
     @Benchmark
-    public void testMatrixMultiplicationEjml() {
-        new SimpleMatrix(firstMatrix).mult(new SimpleMatrix(secondMatrix));
+    public void testMatrixMultiplicationEjml(Blackhole blackhole) {
+        var result = new SimpleMatrix(firstMatrix).mult(new SimpleMatrix(secondMatrix));
+        blackhole.consume(result);
     }
 
     @Benchmark
-    public void testMatrixMultiplicationNd4J() {
+    public void testMatrixMultiplicationNd4J(Blackhole blackhole) {
         try (INDArray indArray1 = Nd4j.create(firstMatrix); INDArray indArray2 = Nd4j.create(secondMatrix)) {
-            indArray1.mmul(indArray2).toDoubleMatrix();
+            var result = indArray1.mmul(indArray2).toDoubleMatrix();
+            blackhole.consume(result);
         }
     }
 
     @Benchmark
-    public void testMatrixMultiplicationOjAlgo() {
-        RawStore.wrap(firstMatrix).multiply(RawStore.wrap(secondMatrix));
+    public void testMatrixMultiplicationOjAlgo(Blackhole blackhole) {
+        var result = RawStore.wrap(firstMatrix).multiply(RawStore.wrap(secondMatrix));
+        blackhole.consume(result);
     }
 
     @Benchmark
-    public void testMatrixMultiplicationOjAlgoParallel() {
-        R064Store.FACTORY.copy(RawStore.wrap(firstMatrix)).multiply(R064Store.FACTORY.copy(RawStore.wrap(secondMatrix)));
+    public void testMatrixMultiplicationOjAlgoParallel(Blackhole blackhole) {
+        var result = R064Store.FACTORY.copy(RawStore.wrap(firstMatrix)).multiply(R064Store.FACTORY.copy(RawStore.wrap(secondMatrix)));
+        blackhole.consume(result);
     }
 }

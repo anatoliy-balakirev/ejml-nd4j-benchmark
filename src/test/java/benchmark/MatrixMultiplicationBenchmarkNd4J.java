@@ -5,6 +5,7 @@ import org.nd4j.linalg.factory.Nd4j;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.annotations.TearDown;
 import org.openjdk.jmh.infra.Blackhole;
 
 /*
@@ -22,11 +23,16 @@ public class MatrixMultiplicationBenchmarkNd4J extends MatrixMultiplicationBench
 
     @Benchmark
     public void multiply(Blackhole blackhole) {
-        try {
-            var result = firstMatrix.mmul(secondMatrix).toDoubleMatrix();
-            blackhole.consume(result);
-        } finally {
+        var result = firstMatrix.mmul(secondMatrix).toDoubleMatrix();
+        blackhole.consume(result);
+    }
+
+    @TearDown
+    public void tearDown() {
+        if (firstMatrix != null) {
             firstMatrix.close();
+        }
+        if (secondMatrix != null) {
             secondMatrix.close();
         }
     }

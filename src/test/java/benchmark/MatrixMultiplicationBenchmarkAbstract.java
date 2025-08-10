@@ -11,6 +11,7 @@ public abstract class MatrixMultiplicationBenchmarkAbstract<T> extends DoubleArr
 
     @Setup
     public void setup() {
+        super.setup();
         this.firstMatrix = toNativeType(firstArray);
         this.secondMatrix = toNativeType(secondArray);
     }

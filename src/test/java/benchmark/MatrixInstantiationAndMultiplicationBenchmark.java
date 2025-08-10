@@ -12,7 +12,7 @@ import org.openjdk.jmh.infra.Blackhole;
 
 /*
         To run this, execute the following command:
-        ./mvnw jmh:benchmark -Djmh.f=1 -Djmh.wi=1 -Djmh.i=3 -Djmh.bm=avgt
+        ./mvnw jmh:benchmark -Djmh.f=1 -Djmh.wi=1 -Djmh.i=3 -Djmh.bm=avgt -Djmh.benchmarks="benchmark.MatrixInstantiationAndMultiplicationBenchmark"
         Benchmark                                                         (matrixDimensions)  Mode  Cnt   Score    Error  Units
         MatrixInstantiationAndMultiplicationBenchmark.ejml                                1x1;1x1  avgt    3  ≈ 10⁻⁷            s/op
         MatrixInstantiationAndMultiplicationBenchmark.ejml                                1x5;5x1  avgt    3  ≈ 10⁻⁷            s/op

@@ -53,6 +53,8 @@ import org.openjdk.jmh.infra.Blackhole;
         MatrixOperationBenchmark.testMatrixMultiplicationEjml            3000x3000;3000x3000  avgt    3   5.867 ± 16.654   s/op
         MatrixOperationBenchmark.testMatrixMultiplicationEjml            3300x3300;3300x3300  avgt    3   7.930 ±  3.886   s/op
         MatrixOperationBenchmark.testMatrixMultiplicationEjml            3500x3500;3500x3500  avgt    3  10.075 ±  5.028   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationEjml            4000x4000;4000x4000  avgt    3   12.521 ±   7.746   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationEjml            9441x9441;9441x9441  avgt    3  168.113 ± 125.444   s/op
         MatrixOperationBenchmark.testMatrixMultiplicationNd4J                        1x1;1x1  avgt    3  ≈ 10⁻⁴            s/op
         MatrixOperationBenchmark.testMatrixMultiplicationNd4J                        1x5;5x1  avgt    3  ≈ 10⁻⁴            s/op
         MatrixOperationBenchmark.testMatrixMultiplicationNd4J                        2x2;2x2  avgt    3  ≈ 10⁻⁴            s/op
@@ -88,6 +90,8 @@ import org.openjdk.jmh.infra.Blackhole;
         MatrixOperationBenchmark.testMatrixMultiplicationNd4J            3000x3000;3000x3000  avgt    3   0.405 ±  0.301   s/op
         MatrixOperationBenchmark.testMatrixMultiplicationNd4J            3300x3300;3300x3300  avgt    3   0.534 ±  0.419   s/op
         MatrixOperationBenchmark.testMatrixMultiplicationNd4J            3500x3500;3500x3500  avgt    3   0.598 ±  0.433   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationNd4J            4000x4000;4000x4000  avgt    3   0.783 ±   0.433  s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationNd4J            9441x9441;9441x9441  avgt    3   6.792 ±   4.294  s/op
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgo                      1x1;1x1  avgt    3  ≈ 10⁻⁷            s/op
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgo                      1x5;5x1  avgt    3  ≈ 10⁻⁷            s/op
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgo                      2x2;2x2  avgt    3  ≈ 10⁻⁷            s/op
@@ -123,6 +127,8 @@ import org.openjdk.jmh.infra.Blackhole;
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgo          3000x3000;3000x3000  avgt    3  32.829 ± 14.060   s/op
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgo          3300x3300;3300x3300  avgt    3  37.471 ±  2.889   s/op
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgo          3500x3500;3500x3500  avgt    3  48.747 ± 67.275   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationOjAlgo          4000x4000;4000x4000  avgt    3  67.452 ± 1.599    s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationOjAlgo          9441x9441;9441x9441  avgt    3  850.949 ± 80.546  s/op
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgoParallel              1x1;1x1  avgt    3  ≈ 10⁻⁷            s/op
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgoParallel              1x5;5x1  avgt    3  ≈ 10⁻⁷            s/op
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgoParallel              2x2;2x2  avgt    3  ≈ 10⁻⁷            s/op
@@ -158,6 +164,8 @@ import org.openjdk.jmh.infra.Blackhole;
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgoParallel  3000x3000;3000x3000  avgt    3   5.932 ±  9.180   s/op
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgoParallel  3300x3300;3300x3300  avgt    3   8.063 ±  6.989   s/op
         MatrixOperationBenchmark.testMatrixMultiplicationOjAlgoParallel  3500x3500;3500x3500  avgt    3   9.669 ±  1.651   s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationOjAlgoParallel  4000x4000;4000x4000  avgt    3  14.067 ±  13.480  s/op
+        MatrixOperationBenchmark.testMatrixMultiplicationOjAlgoParallel  9441x9441;9441x9441  avgt    3 157.278 ± 230.624  s/op
     * */
 @State(Scope.Benchmark)
 public class MatrixOperationBenchmark {
